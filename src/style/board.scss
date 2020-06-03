@@ -1,0 +1,24 @@
+.board {
+  border: 2px solid white;
+  display: grid;
+  position: absolute;
+  top: 50%;
+  height: 45%;
+  width: 80vw;
+  grid-column-gap: 3px;
+  grid-row-gap: 3px;
+  grid-template-columns: auto 20%;
+  grid-template-areas:
+    "field graveyard"
+    "field deck";
+}
+
+.battlefield {
+  grid-area: field;
+}
+
+.card {
+  text-align: center;
+  list-style: none;
+  position: fixed;
+}
