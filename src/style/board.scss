@@ -10,7 +10,7 @@
   grid-template-columns: auto 20%;
   grid-template-areas:
     "field graveyard"
-    "field deck";
+    "field library";
 }
 
 .battlefield {
@@ -32,5 +32,14 @@
 }
 
 .library {
+  grid-area: library;
   border: 2px solid aquamarine;
+}
+
+#hand {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  border: 2px solid gold;
+  padding-left: 0;
 }

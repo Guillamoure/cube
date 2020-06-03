@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import deckReducer from './deckReducer'
+import libraryReducer from './libraryReducer'
 import cardReducer from './cardReducer'
+import handReducer from './handReducer'
 
 const rootReducer = combineReducers({
-  deckReducer,
-  cardReducer
+  libraryReducer,
+  cardReducer,
+  handReducer
 })
 
 export default rootReducer

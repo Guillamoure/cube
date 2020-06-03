@@ -1,6 +1,6 @@
 const initialState = {
-  decks: [],
-  activeDeck: [
+  libraries: [],
+  activeLibrary: [
     {
       name: "Grappling Sundew",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=452881&type=card",
@@ -173,11 +173,15 @@ const initialState = {
   ]
 }
 
-const deckReducer = (state = initialState, action) => {
+const libraryReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "REMOVE TOP CARD":
+      var libraryDuplicate = [...state.activeLibrary]
+      libraryDuplicate.shift()
+      return {...state, activeLibrary: libraryDuplicate}
     default:
       return state
   }
 }
 
-export default deckReducer
+export default libraryReducer
