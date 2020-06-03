@@ -22,10 +22,16 @@ const Card = props => {
     }
   }, [])
 
+  let cards = [
+    "https://static.tappedout.net/mtg-cards-2/guilds-of-ravnica/piston-fist-cyclops/mtg-cards/_user-added/femme_fatale-piston-fist-cyclops-grn-15372234670.png",
+    "https://img.scryfall.com/cards/large/front/d/8/d898743b-7e0f-4339-963e-aa4232c681ec.jpg?1562634600",
+    "https://crystalcommerce-assets.s3.amazonaws.com/photos/6505517/large/en_YSkVCgAxCC.png?1554924601"
+  ]
+
   const style = {
     height: `${height}px`,
     width: `${width}px`,
-    backgroundImage: `url("https://static.tappedout.net/mtg-cards-2/guilds-of-ravnica/piston-fist-cyclops/mtg-cards/_user-added/femme_fatale-piston-fist-cyclops-grn-15372234670.png")`,
+    backgroundImage: `url(${cards[Math.floor(Math.random() * cards.length)]})`,
     backgroundSize: "cover",
     top: `${additionalCoordinates.top || coordinates.top}px`,
     left: `${additionalCoordinates.left || coordinates.left}px`,
