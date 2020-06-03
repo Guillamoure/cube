@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BattleField from './battlefield'
+import Library from '../components/library'
 
 
 const Board = props => {
@@ -36,7 +37,7 @@ const Board = props => {
     <section ref={target => boardEl = target} className="board">
       <BattleField cardDimensions={cardDimensions}/>
       <div>Graveyard</div>
-      <div>Library</div>
+      <Library />
     </section>
   )
 }
