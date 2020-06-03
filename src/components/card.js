@@ -10,6 +10,8 @@ const Card = props => {
 
   const [additionalCoordinates, setAdditionalCoordinates] = React.useState({ top: 0, left: 0})
 
+  const [classList, setClassList] = React.useState(["card"])
+
 
   const l = React.useRef(null)
 
@@ -45,8 +47,23 @@ const Card = props => {
     setXY({ x: 0, y: 0 })
   }
 
+  const hover = e => {
+    if (e.target === l.current){
+      let cl = [...classList]
+      cl.push("hover-card-good")
+      setClassList(cl)
+    }
+  }
+
+  const removeHover = e => {
+    if (e.target === l.current){
+      let cl = [...classList].filter(c => c !== "hover-card-good")
+      setClassList(cl)
+    }
+  }
+
   return (
-    <li ref={l} className="card" style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd}>
+    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover}>
     </li>
   )
 }
