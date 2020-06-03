@@ -1,7 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 import { centerOfCard } from '../helper_methods/card/location'
 
 const Card = props => {
+
+  const cardData = useSelector(state => state.cardReducer)
+  console.log(cardData)
 
   const { height, width } = props.cardDimensions
   const [coordinates, setCoordinates] = React.useState({})
