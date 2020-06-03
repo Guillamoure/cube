@@ -62,8 +62,20 @@ const Card = props => {
     }
   }
 
+  const tap = e => {
+    e.preventDefault()
+    let cl = [...classList]
+    if (classList.includes("tapped")){
+      cl = cl.filter(c => c !== "tapped")
+      setClassList(cl)
+    } else {
+      cl.push("tapped")
+      setClassList(cl)
+    }
+  }
+
   return (
-    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover}>
+    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={tap}>
     </li>
   )
 }
