@@ -4,13 +4,15 @@ import cardReducer from './cardReducer'
 import handReducer from './handReducer'
 import fieldReducers from './fieldReducers'
 import modalReducers from './modalReducers'
+import graveyardReducers from './graveyardReducers'
 
 const rootReducer = combineReducers({
   libraryReducer,
   cardReducer,
   handReducer,
   fieldReducers,
-  modalReducers
+  modalReducers,
+  graveyardReducers
 })
 
 export default rootReducer

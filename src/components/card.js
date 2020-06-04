@@ -12,11 +12,8 @@ const Card = props => {
   const cardData = useSelector(state => state.cardReducer)
 
   const { height, width } = cardData.cardDimensions
-  const [coordinates, setCoordinates] = React.useState({})
 
   const [startingXY, setXY] = React.useState({x: 0, y: 0})
-
-  const [additionalCoordinates, setAdditionalCoordinates] = React.useState({ top: 0, left: 0})
 
   const [classList, setClassList] = React.useState(["card"])
 
@@ -24,21 +21,17 @@ const Card = props => {
   const l = React.useRef(null)
 
   React.useEffect(() => {
-    if(l.current){
-      let rect = centerOfCard(l)
-      setCoordinates(rect)
-    }
+    // if(l.current){
+    //   let rect = centerOfCard(l)
+    //   setCoordinates(rect)
+    // }
   }, [])
 
   const style = {
     backgroundSize: "cover",
     top: `${co.y}px`,
     left: `${co.x}px`
-    // top: `${additionalCoordinates.top + coordinates.top}px`,
-    // left: `${additionalCoordinates.left + coordinates.left}px`,
   }
-  // console.log(additionalCoordinates)
-  // console.log(co)
 
   const drag = (e) => {
     setXY({
@@ -49,10 +42,6 @@ const Card = props => {
 
   const dragEnd = e => {
     // debugger
-    setAdditionalCoordinates({
-      top: e.clientY - startingXY.y,
-      left: e.clientX - startingXY.x
-    })
     moveCard(card, {
       x: e.clientX - startingXY.x,
       y: e.clientY - startingXY.y
