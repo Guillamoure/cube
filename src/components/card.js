@@ -2,10 +2,11 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { centerOfCard } from '../helper_methods/card/location'
+import { moveCard } from '../actions/fieldActions'
 
 const Card = props => {
 
-  const { card } = props
+  const { card, coordinates: co } = props.card
 
   const cardData = useSelector(state => state.cardReducer)
 
@@ -30,11 +31,13 @@ const Card = props => {
 
   const style = {
     backgroundSize: "cover",
-    top: `${additionalCoordinates.top + coordinates.top}px`,
-    left: `${additionalCoordinates.left + coordinates.left}px`,
+    top: `${co.y}px`,
+    left: `${co.x}px`
+    // top: `${additionalCoordinates.top + coordinates.top}px`,
+    // left: `${additionalCoordinates.left + coordinates.left}px`,
   }
-  console.log(additionalCoordinates)
-  console.log(coordinates)
+  // console.log(additionalCoordinates)
+  // console.log(co)
 
   const drag = (e) => {
     setXY({
@@ -48,6 +51,10 @@ const Card = props => {
     setAdditionalCoordinates({
       top: e.clientY - startingXY.y,
       left: e.clientX - startingXY.x
+    })
+    moveCard(card, {
+      x: e.clientX - startingXY.x,
+      y: e.clientY - startingXY.y
     })
     setXY({ x: 0, y: 0 })
   }

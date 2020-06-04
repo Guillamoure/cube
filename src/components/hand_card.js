@@ -27,7 +27,7 @@ const HandCard = props => {
   const dragEnd = e => {
     if (onTheBoard(e.clientX, e.clientY)){
       removeFromHand(card)
-      playCard(card)
+      playCard(card, {x: e.clientX, y: e.clientY})
     }
   }
 
