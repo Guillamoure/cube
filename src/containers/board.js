@@ -4,6 +4,7 @@ import  { updateCardDimensions } from '../actions/cardActions'
 import BattleField from './battlefield'
 import Library from '../components/library'
 import Hand from './hand'
+import Graveyard from './graveyard'
 
 
 const Board = props => {
@@ -39,7 +40,7 @@ const Board = props => {
     <>
       <section ref={target => boardEl = target} className="board">
         <BattleField cardDimensions={cardDimensions}/>
-        <div>Graveyard</div>
+        <Graveyard />
         <Library />
       </section>
       <Hand />

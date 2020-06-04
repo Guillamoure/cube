@@ -50,7 +50,7 @@ const Card = props => {
   }
 
   const hover = e => {
-    if (e.target === l.current){
+    if (e.target === l.current || e.target === l.current.querySelector('img')){
       let cl = [...classList]
       cl.push("hover-card-good")
       setClassList(cl)
@@ -58,14 +58,23 @@ const Card = props => {
   }
 
   const removeHover = e => {
-    if (e.target === l.current){
+    if (e.target === l.current || e.target === l.current.querySelector('img')){
       let cl = [...classList].filter(c => c !== "hover-card-good")
       setClassList(cl)
     }
   }
 
-  const tap = e => {
+  const contextMenu = e => {
     e.preventDefault()
+    if (e.shiftKey){
+
+    } else {
+      tap()
+    }
+
+  }
+
+  const tap = () => {
     let cl = [...classList]
     if (classList.includes("tapped")){
       cl = cl.filter(c => c !== "tapped")
@@ -81,7 +90,7 @@ const Card = props => {
   }
 
   return (
-    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={tap} onDoubleClick={expand}>
+    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={contextMenu} onDoubleClick={expand}>
       <img src={card.imageURL} alt={card.name} width={width} height={height}/>
     </li>
   )

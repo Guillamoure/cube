@@ -12,7 +12,7 @@ const Graveyard = props => {
   }
 
   return (
-    <ul id="hand">
+    <ul className="graveyard">
       {displayGraveyard(gyCards)}
     </ul>
   )

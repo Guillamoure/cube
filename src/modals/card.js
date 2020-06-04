@@ -14,6 +14,7 @@ const CardModal = props => {
 
   const rotate = e => {
     e.preventDefault()
+    
     let cl = [...classList]
     if (cl.includes("rotated")){
       cl = cl.filter(c => c !== "rotated")
