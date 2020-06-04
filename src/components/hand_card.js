@@ -3,7 +3,6 @@ import { onTheBoard, calculateTopAndLeft } from '../helper_methods/card/location
 import { removeFromHand } from '../actions/handActions'
 import { playCard } from '../actions/fieldActions'
 import { setModal } from '../actions/modalActions'
-import { useSelector } from 'react-redux'
 
 const HandCard = props => {
   const { card } = props
@@ -39,12 +38,8 @@ const HandCard = props => {
     }
   }
 
-  const activeModal = useSelector(state => state.modalReducers.kind)
-
   const modal = () => {
-    if (!activeModal){
-      setModal("card", card)
-    }
+    setModal("card", card)
   }
 
   return (
