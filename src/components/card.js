@@ -5,10 +5,11 @@ import { centerOfCard } from '../helper_methods/card/location'
 
 const Card = props => {
 
-  const cardData = useSelector(state => state.cardReducer)
-  console.log(cardData)
+  const { card } = props
 
-  const { height, width } = props.cardDimensions
+  const cardData = useSelector(state => state.cardReducer)
+
+  const { height, width } = cardData.cardDimensions
   const [coordinates, setCoordinates] = React.useState({})
 
   const [startingXY, setXY] = React.useState({x: 0, y: 0})
@@ -27,20 +28,13 @@ const Card = props => {
     }
   }, [])
 
-  let cards = [
-    "https://static.tappedout.net/mtg-cards-2/guilds-of-ravnica/piston-fist-cyclops/mtg-cards/_user-added/femme_fatale-piston-fist-cyclops-grn-15372234670.png",
-    "https://img.scryfall.com/cards/large/front/d/8/d898743b-7e0f-4339-963e-aa4232c681ec.jpg?1562634600",
-    "https://crystalcommerce-assets.s3.amazonaws.com/photos/6505517/large/en_YSkVCgAxCC.png?1554924601"
-  ]
-
   const style = {
-    height: `${height}px`,
-    width: `${width}px`,
-    backgroundImage: `url(${cards[Math.floor(Math.random() * cards.length)]})`,
     backgroundSize: "cover",
-    top: `${additionalCoordinates.top || coordinates.top}px`,
-    left: `${additionalCoordinates.left || coordinates.left}px`,
+    top: `${additionalCoordinates.top + coordinates.top}px`,
+    left: `${additionalCoordinates.left + coordinates.left}px`,
   }
+  console.log(additionalCoordinates)
+  console.log(coordinates)
 
   const drag = (e) => {
     setXY({
@@ -87,6 +81,7 @@ const Card = props => {
 
   return (
     <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={tap}>
+      <img src={card.imageURL} alt={card.name} width={width} height={height}/>
     </li>
   )
 }

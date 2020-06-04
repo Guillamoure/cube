@@ -2,6 +2,7 @@ const initialState = {
   libraries: [],
   activeLibrary: [
     {
+      id: 1,
       name: "Grappling Sundew",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=452881&type=card",
       mana: [
@@ -13,7 +14,7 @@ const initialState = {
         {white: 0}
       ]
     },
-    {
+    { id: 2,
       name: "Fated Retribution",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=378383&type=card",
       mana: [
@@ -26,6 +27,7 @@ const initialState = {
       ]
     },
     {
+      id: 3,
       name: "Manglehorn",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426877&type=card",
       mana: [
@@ -38,6 +40,7 @@ const initialState = {
       ]
     },
     {
+      id: 4,
       name: "Trained Condor",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=370692&type=card",
       mana: [
@@ -50,6 +53,7 @@ const initialState = {
       ]
     },
     {
+      id: 5,
       name: "Alloy Myr",
       imageURL: "https://www.cardkingdom.com/images/magic-the-gathering/new-phyrexia/alloy-myr-29538-medium.jpg",
       mana: [
@@ -62,6 +66,7 @@ const initialState = {
       ]
     },
     {
+      id: 6,
       name: "Burst of Strength",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366304&type=card",
       mana: [
@@ -74,6 +79,7 @@ const initialState = {
       ]
     },
     {
+      id: 7,
       name: "Armed // Dangerous",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=368989&type=card",
       mana: [
@@ -86,6 +92,7 @@ const initialState = {
       ]
     },
     {
+      id: 8,
       name: "Manifold Key",
       imageURL: "https://www.cardkingdom.com/images/magic-the-gathering/core-set-2020/manifold-key-32197-medium.jpg",
       mana: [
@@ -98,6 +105,7 @@ const initialState = {
       ]
     },
     {
+      id: 9,
       name: "Sundering Stroke",
       imageURL: "https://www.cardkingdom.com/images/magic-the-gathering/throne-of-eldraine/sundering-stroke-87407-medium.jpg",
       mana: [
@@ -110,6 +118,7 @@ const initialState = {
       ]
     },
     {
+      id: 10,
       name: "Orochi Hatchery",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=80241&type=card",
       mana: [
@@ -123,6 +132,7 @@ const initialState = {
       ]
     },
     {
+      id: 11,
       name: "Pressure Point",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=391896&type=card",
       mana: [
@@ -135,6 +145,7 @@ const initialState = {
       ]
     },
     {
+      id: 12,
       name: "Avarice Totem",
       imageURL: "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=39667&type=card",
       mana: [
@@ -147,6 +158,7 @@ const initialState = {
       ]
     },
     {
+      id: 13,
       name: "Deathbringer Regent",
       imageURL: "https://media.miniaturemarket.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/-/m-651-033.jpg",
       mana: [
@@ -159,6 +171,7 @@ const initialState = {
       ]
     },
     {
+      id: 14,
       name: "Simic Cluestone",
       imageURL: "https://www.cardkingdom.com/images/magic-the-gathering/dragons-maze/simic-cluestone-33544-medium.jpg",
       mana: [
