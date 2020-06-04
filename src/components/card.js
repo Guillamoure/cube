@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { centerOfCard } from '../helper_methods/card/location'
 import { moveCard } from '../actions/fieldActions'
+import { setModal } from '../actions/modalActions'
 
 const Card = props => {
 
@@ -86,8 +87,12 @@ const Card = props => {
     }
   }
 
+  const expand = () => {
+    setModal("card", card)
+  }
+
   return (
-    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={tap}>
+    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={tap} onDoubleClick={expand}>
       <img src={card.imageURL} alt={card.name} width={width} height={height}/>
     </li>
   )

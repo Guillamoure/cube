@@ -1,13 +1,16 @@
 import React from 'react'
-import { onTheBoard } from '../helper_methods/card/location'
+import { onTheBoard, calculateTopAndLeft } from '../helper_methods/card/location'
 import { removeFromHand } from '../actions/handActions'
 import { playCard } from '../actions/fieldActions'
+import { setModal } from '../actions/modalActions'
+import { useSelector } from 'react-redux'
 
 const HandCard = props => {
   const { card } = props
   const [width, setWidth] = React.useState(window.innerWidth / 11)
   const [height, setHeight] = React.useState(window.innerWidth / 11 * 7/5)
   const [style, setStyle] = React.useState({})
+  const [startingXY, setXY] = React.useState({})
 
 
   const hover = () => {
@@ -24,15 +27,28 @@ const HandCard = props => {
       setStyle({})
   }
 
+  const drag = e => {
+    setXY(calculateTopAndLeft(e))
+  }
+
   const dragEnd = e => {
     if (onTheBoard(e.clientX, e.clientY)){
       removeFromHand(card)
-      playCard(card, {x: e.clientX, y: e.clientY})
+      playCard(card, {x: e.clientX + (startingXY.left/2), y: e.clientY + (startingXY.top/2)})
+      setXY({})
+    }
+  }
+
+  const activeModal = useSelector(state => state.modalReducers.kind)
+
+  const modal = () => {
+    if (!activeModal){
+      setModal("card", card)
     }
   }
 
   return (
-    <li className="hand-card" style={style} draggable={true} onMouseOver={hover} onMouseOut={removeHover} onDragEnd={dragEnd}>
+    <li className="hand-card" style={style} draggable={true} onMouseOver={hover} onMouseOut={removeHover} onDragStart={drag} onDragEnd={dragEnd} onDoubleClick={modal}>
       <img src={card.imageURL} alt={card.name} width={width} height={height}/>
     </li>
   )

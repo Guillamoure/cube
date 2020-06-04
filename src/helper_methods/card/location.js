@@ -13,3 +13,17 @@ export const onTheBoard = (x, y) => {
     return false
   }
 }
+
+export const calculateTopAndLeft = e => {
+  const locationX = e.clientX
+  const locationY = e.clientY
+
+  let dimensions = e.target.getBoundingClientRect()
+  const left = dimensions.left
+  const top = dimensions.top
+
+  return {
+    left: left - locationX,
+    top: top - locationY
+  }
+}
