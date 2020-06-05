@@ -5,7 +5,6 @@ import { draw } from '../helper_methods/library'
 
 const Library = props => {
   const state = useSelector(state => state)
-  console.log(state)
 
 
   const renderLibrary = (library) => {
