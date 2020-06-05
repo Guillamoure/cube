@@ -22,17 +22,13 @@ const Card = props => {
   const l = React.useRef(null)
 
   React.useEffect(() => {
-    // if(l.current){
-    //   let rect = centerOfCard(l)
-    //   setCoordinates(rect)
-    // }
     if(tapped && !classList.includes("tapped")){
-      var classListDuplicate = [...classList]
-      classListDuplicate.push("tapped")
-      setClassList(classListDuplicate)
+      var clDuplicate = [...classList]
+      clDuplicate.push("tapped")
+      setClassList(clDuplicate)
     } else {
-      classListDuplicate = [...classList].filter(cl => cl !== "tapped")
-      setClassList(classListDuplicate)
+      clDuplicate = [...classList].filter(cl => cl !== "tapped")
+      setClassList(clDuplicate)
     }
   }, [tapped])
 
@@ -84,14 +80,6 @@ const Card = props => {
 
   const tap = () => {
     updateTap(libraryCard)
-    // let cl = [...classList]
-    // if (classList.includes("tapped")){
-    //   cl = cl.filter(c => c !== "tapped")
-    //   setClassList(cl)
-    // } else {
-    //   cl.push("tapped")
-    //   setClassList(cl)
-    // }
   }
 
   const expand = () => {
