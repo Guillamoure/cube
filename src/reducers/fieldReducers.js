@@ -7,13 +7,13 @@ const fieldReducer = (state = initialState, action) => {
     case "PLAY CARD":
       var fieldCardsDuplicate = [...state.fieldCards]
       fieldCardsDuplicate.push({
-        card: action.card,
+        libraryCard: action.libraryCard,
         coordinates: action.coordinates
       })
       return {...state, fieldCards: fieldCardsDuplicate}
     case "MOVE CARD":
       fieldCardsDuplicate = [...state.fieldCards].map(c => {
-        if(c.card.id !== action.card.id){return c}
+        if(c.libraryCard.id !== action.libraryCard.id){return c}
         console.log(action.coordinates)
         let cardDuplicate = {...c}
         cardDuplicate.coordinates.x += action.coordinates.x

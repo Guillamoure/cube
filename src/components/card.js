@@ -7,7 +7,8 @@ import { setModal } from '../actions/modalActions'
 
 const Card = props => {
 
-  const { card, coordinates: co } = props.card
+  const { libraryCard, coordinates: co } = props.cardData
+  const { card } = libraryCard
 
   const cardData = useSelector(state => state.cardReducer)
 
@@ -42,7 +43,7 @@ const Card = props => {
 
   const dragEnd = e => {
     // debugger
-    moveCard(card, {
+    moveCard(libraryCard, {
       x: e.clientX - startingXY.x,
       y: e.clientY - startingXY.y
     })

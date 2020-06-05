@@ -7,7 +7,7 @@ const Battlefield = props => {
   let cards = useSelector(state => state.fieldReducers.fieldCards)
 
   const displayCards = () => {
-    return cards.map(c => <Card key={uuidv4()} card={c}/>)
+    return cards.map(c => <Card key={uuidv4()} cardData={c}/>)
   }
   return (
     <article id="battlefield">
