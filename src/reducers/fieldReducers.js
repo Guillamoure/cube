@@ -21,6 +21,13 @@ const fieldReducer = (state = initialState, action) => {
         return cardDuplicate
       })
       return {...state, fieldCards: fieldCardsDuplicate}
+    case "TAP":
+      fieldCardsDuplicate = [...state.fieldCards].map(fc => {
+        if (fc.libraryCard.id === action.libraryCard.id){
+          return {...fc, tapped: !fc.tapped}
+        } else {return fc}
+      })
+      return {...state, fieldCards: fieldCardsDuplicate}
     default:
       return state
   }

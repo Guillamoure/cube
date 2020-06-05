@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { centerOfCard } from '../helper_methods/card/location'
-import { moveCard } from '../actions/fieldActions'
+import { moveCard, updateTap } from '../actions/fieldActions'
 import { setModal } from '../actions/modalActions'
 
 const Card = props => {
 
-  const { libraryCard, coordinates: co } = props.cardData
+  const { libraryCard, coordinates: co, tapped } = props.cardData
   const { card } = libraryCard
 
   const cardData = useSelector(state => state.cardReducer)
@@ -26,7 +26,15 @@ const Card = props => {
     //   let rect = centerOfCard(l)
     //   setCoordinates(rect)
     // }
-  }, [])
+    if(tapped && !classList.includes("tapped")){
+      var classListDuplicate = [...classList]
+      classListDuplicate.push("tapped")
+      setClassList(classListDuplicate)
+    } else {
+      classListDuplicate = [...classList].filter(cl => cl !== "tapped")
+      setClassList(classListDuplicate)
+    }
+  }, [tapped])
 
   const style = {
     backgroundSize: "cover",
@@ -75,14 +83,15 @@ const Card = props => {
   }
 
   const tap = () => {
-    let cl = [...classList]
-    if (classList.includes("tapped")){
-      cl = cl.filter(c => c !== "tapped")
-      setClassList(cl)
-    } else {
-      cl.push("tapped")
-      setClassList(cl)
-    }
+    updateTap(libraryCard)
+    // let cl = [...classList]
+    // if (classList.includes("tapped")){
+    //   cl = cl.filter(c => c !== "tapped")
+    //   setClassList(cl)
+    // } else {
+    //   cl.push("tapped")
+    //   setClassList(cl)
+    // }
   }
 
   const expand = () => {
