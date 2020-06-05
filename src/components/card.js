@@ -71,7 +71,6 @@ const Card = props => {
     } else {
       tap()
     }
-
   }
 
   const tap = () => {

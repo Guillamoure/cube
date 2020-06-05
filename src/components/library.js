@@ -7,6 +7,7 @@ const Library = props => {
   const state = useSelector(state => state)
   console.log(state)
 
+
   const renderLibrary = (library) => {
     let width = state.cardReducer.cardDimensions.width
     let height = state.cardReducer.cardDimensions.height

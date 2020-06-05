@@ -8,7 +8,7 @@ const Hand = props => {
   const handContents = useSelector(state => state.handReducer.hand)
 
   const displayHand = (h) => {
-    return h.map(hc => <HandCard key={uuidv4()} card={hc}/>)
+    return h.map(hc => <HandCard key={uuidv4()} deckCard={hc}/>)
   }
 
   return (

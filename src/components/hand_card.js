@@ -5,7 +5,7 @@ import { playCard } from '../actions/fieldActions'
 import { setModal } from '../actions/modalActions'
 
 const HandCard = props => {
-  const { card } = props
+  const { card } = props.deckCard
   const [width, setWidth] = React.useState(window.innerWidth / 11)
   const [height, setHeight] = React.useState(window.innerWidth / 11 * 7/5)
   const [style, setStyle] = React.useState({})
@@ -32,7 +32,7 @@ const HandCard = props => {
 
   const dragEnd = e => {
     if (onTheBoard(e.clientX, e.clientY)){
-      removeFromHand(card)
+      removeFromHand(props.deckCard)
       playCard(card, {x: e.clientX + (startingXY.left/2), y: e.clientY + (startingXY.top/2)})
       setXY({})
     }
