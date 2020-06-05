@@ -10,12 +10,19 @@ const Library = props => {
   const renderLibrary = (library) => {
     let width = state.cardReducer.cardDimensions.width
     let height = state.cardReducer.cardDimensions.height
-    return (
-      <>
-        <img src="/magic-card-back.jpg" alt="library" width={width} height={height}/>
-        <p>{library.length}</p>
-      </>
-    )
+    if (!library.count){
+      return (
+        <>
+          <img src="/magic-card-back.jpg" alt="library" width={width} height={height}/>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <img src="/empty-spaces.jpg" alt="no library" width={width} height={height}/>
+        </>
+      )
+    }
   }
 
   return (

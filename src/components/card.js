@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { centerOfCard } from '../helper_methods/card/location'
 import { moveCard, updateTap } from '../actions/fieldActions'
 import { setModal } from '../actions/modalActions'
 

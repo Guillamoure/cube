@@ -8,7 +8,7 @@ const Graveyard = props => {
   const gyCards = useSelector(state => state.graveyardReducers.graveyardCards)
 
   const displayGraveyard = (gy) => {
-    return gy.map(gyc => <GraveyardCard key={uuidv4()} card={gyc}/>)
+    return gy.map(gyc => <GraveyardCard key={uuidv4()} cardData={gyc}/>)
   }
 
   return (

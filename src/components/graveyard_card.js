@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const GraveyardHand = props => {
-  const { card } = props
+  const { card } = props.cardData
 
   const cardData = useSelector(state => state.cardReducer)
 
