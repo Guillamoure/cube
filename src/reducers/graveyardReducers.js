@@ -4,10 +4,17 @@ const initialState = {
 
 const fieldReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD CARD":
+    case "ADD GRAVEYARD":
       var gyDuplicate = [...state.graveyardCards]
-      gyDuplicate.push(action.card)
+      gyDuplicate.push(action.graveyardCard)
       return {...state, graveyardCards: gyDuplicate}
+    case "REMOVE GRAVEYARD":
+      let found = false
+      gyDuplicate = [...state.graveyardCards].filter(gyc => {
+        if (gyc.id === action.graveyardCard.id){return false}
+        else {return true}
+      })
+      return { ...state, graveyardCards: gyDuplicate }
     default:
       return state
   }

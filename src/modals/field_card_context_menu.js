@@ -1,9 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import { updateTap, removeCard } from '../actions/fieldActions'
 import { setModal } from '../actions/modalActions'
 import { addToHand } from '../actions/handActions'
+import { addGraveyard } from '../actions/graveyardActions'
 
 const CardContextMenu = props => {
   const { coordinates, data } = props.modalData
@@ -19,10 +19,16 @@ const CardContextMenu = props => {
     setModal(null, {}, {})
   }
 
+  const toGY = () => {
+    removeCard(data.libraryCard)
+    addGraveyard(data.libraryCard)
+    setModal(null, {}, {})
+  }
+
   return (
     <ul id="context-menu" style={{top: coordinates.y, left: coordinates.x}}>
       <li className="context-menu-item" onClick={tap}>{data.tapped ? "Untap" : "Tap"}</li>
-      <li className="context-menu-item">Move to Graveyard</li>
+      <li className="context-menu-item" onClick={toGY}>Move to Graveyard</li>
       <li className="context-menu-item" onClick={toHand}>Move to Hand</li>
     </ul>
   )

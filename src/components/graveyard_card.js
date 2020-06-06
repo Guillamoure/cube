@@ -6,10 +6,12 @@ const GraveyardHand = props => {
 
   const cardData = useSelector(state => state.cardReducer)
 
-  const { height, width } = cardData.cardDimensions
+  const [width, setWidth] = React.useState(window.innerWidth / 11)
+  const [height, setHeight] = React.useState(window.innerWidth / 11 * 7/5)
 
   return (
-    <li>
+    <li className="graveyard-card">
+      <img src={card.imageURL} alt={card.name} width={width} height={height}/>
     </li>
   )
 }

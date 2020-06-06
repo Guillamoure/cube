@@ -71,6 +71,13 @@
 
 .graveyard {
   grid-area: graveyard;
+  padding-left: 0;
+  border: 2px solid orange;
+  text-align: center;
+  list-style: none;
+}
+
+.graveyard-card{
 }
 
 .sidebar-list-item {
