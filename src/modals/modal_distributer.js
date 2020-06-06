@@ -5,6 +5,7 @@ import { setModal } from '../actions/modalActions'
 import CardModal from './card'
 import FieldCardContextMenu from './field_card_context_menu'
 import GraveyardContextMenu from './graveyard_context_menu'
+import LibraryContextMenu from './library_context_menu'
 import CardList from './card_list'
 
 const ModalDistributer = props => {
@@ -21,6 +22,8 @@ const ModalDistributer = props => {
         return <FieldCardContextMenu modalData={modalData}/>
       case "graveyardContextMenu":
         return <GraveyardContextMenu modalData={modalData}/>
+      case "libraryContextMenu":
+        return <LibraryContextMenu modalData={modalData}/>
       case "cardList":
         return <CardList modalData={modalData} />
       default:

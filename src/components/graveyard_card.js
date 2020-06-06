@@ -1,20 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { coordinates } from '../helper_methods/card/location'
 
 import { setModal } from '../actions/modalActions'
 
-const GraveyardHand = props => {
+const GraveyardCard = props => {
   const { card } = props.cardData
+  const gyRef = React.useRef(null)
+  const [width, setWidth] = React.useState(window.innerWidth / 11)
+  const [height, setHeight] = React.useState(window.innerWidth / 11 * 7/5)
 
   const cardData = useSelector(state => state.cardReducer)
 
-  const [width, setWidth] = React.useState(window.innerWidth / 11)
-  const [height, setHeight] = React.useState(window.innerWidth / 11 * 7/5)
 
   const rightClick = e => {
     e.preventDefault()
     if (e.shiftKey){
-      setModal("graveyardContextMenu", props.cardData, {})
+      let co = coordinates(gyRef)
+      setModal("graveyardContextMenu", props.cardData, {x: co.x, y: co.y})
     }
   }
   const expand = () => {
@@ -23,9 +26,9 @@ const GraveyardHand = props => {
 
   return (
     <li className="graveyard-card">
-      <img src={card.imageURL} alt={card.name} width={width} height={height} onContextMenu={rightClick} onDoubleClick={expand}/>
+      <img ref={gyRef} src={card.imageURL} alt={card.name} width={width} height={height} onContextMenu={rightClick} onDoubleClick={expand}/>
     </li>
   )
 }
 
-export default GraveyardHand
+export default GraveyardCard

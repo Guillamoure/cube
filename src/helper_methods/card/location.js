@@ -1,4 +1,4 @@
-export const centerOfCard = (card) => {
+export const coordinates = (card) => {
   if (card.current){
     return card.current.getBoundingClientRect()
   }

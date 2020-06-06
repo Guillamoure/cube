@@ -7,6 +7,7 @@ const Sidebar = props => {
   const state = useSelector(state => state)
   let libraryCount = state.libraryReducer.activeLibrary.length
   let handCount = state.handReducer.hand.length
+  let gyCount = state.graveyardReducers.graveyardCards.length
   // <li className="sidebar-list-item">Life: 20</li>
   // <li className="sidebar-list-item">Library: {libraryCount}</li>
 
@@ -16,6 +17,7 @@ const Sidebar = props => {
         <SidebarItem headline={"Life"} color={"maroon"} textColor={"cornsilk"} value={20}/>
         <SidebarItem headline={"Library"} color={"blue"} textColor={"lemonchiffon"} value={libraryCount}/>
         <SidebarItem headline={"Hand"} color={"peru"} textColor={"navy"} value={handCount}/>
+        <SidebarItem headline={"Graveyard"} color={"forestgreen"} textColor={"firebrick"} value={gyCount}/>
       </ul>
     </aside>
   )
