@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './style/app.scss'
 import './style/board.scss'
+import './style/modal.scss'
 import { useSelector } from 'react-redux'
 
 import Home from './components/home'
