@@ -6,12 +6,12 @@ const handReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD HAND":
       var handDuplicate = [...state.hand]
-      handDuplicate.push(action.card)
+      handDuplicate.push(action.handCard)
       return { ...state, hand: handDuplicate }
     case "REMOVE HAND":
       let found = false
       handDuplicate = [...state.hand].filter(hc => {
-        if (hc.id === action.card.id && !found){
+        if (hc.id === action.handCard.id && !found){
           found = true
           return false
         } else {return true}
