@@ -25,8 +25,13 @@ const CardContextMenu = props => {
     setModal(null, {}, {})
   }
 
+  const closeUp = () => {
+    setModal("card", data.libraryCard.card, {})
+  }
+
   return (
     <ul id="context-menu" style={{top: coordinates.y, left: coordinates.x}}>
+      <li className="context-menu-item" onClick={closeUp}>Inspect</li>
       <li className="context-menu-item" onClick={tap}>{data.tapped ? "Untap" : "Tap"}</li>
       <li className="context-menu-item" onClick={toGY}>Move to Graveyard</li>
       <li className="context-menu-item" onClick={toHand}>Move to Hand</li>
