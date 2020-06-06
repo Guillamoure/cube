@@ -27,6 +27,17 @@ const fieldReducer = (state = initialState, action) => {
         } else {return fc}
       })
       return {...state, fieldCards: fieldCardsDuplicate}
+    case "REMOVE CARD":
+    console.log(action)
+    console.log(state.fieldCards)
+      let found = false
+      fieldCardsDuplicate = [...state.fieldCards].filter(fc => {
+        if (fc.libraryCard.id === action.libraryCard.id && !found){
+          found = true
+          return false
+        } else {return true}
+      })
+      return { ...state, fieldCards: fieldCardsDuplicate }
     default:
       return state
   }
