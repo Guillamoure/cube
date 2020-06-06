@@ -86,3 +86,23 @@
     margin: 3px;
   }
 }
+
+#context-menu {
+  border: 2px outset darkgrey;
+  background-color: darkgrey;
+  color: black;
+  list-style: none;
+  width: 10vw;
+  padding: 0;
+  position: fixed;
+  font-size: 12px;
+}
+
+.context-menu-item {
+  border: 1px inset black;
+  margin: 2px;
+  padding: 0 3px;
+  &:hover {
+    background-color: lightgrey;
+  }
+}

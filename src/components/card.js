@@ -14,7 +14,6 @@ const Card = props => {
   const { height, width } = cardData.cardDimensions
 
   const [startingXY, setXY] = React.useState({x: 0, y: 0})
-
   const [classList, setClassList] = React.useState(["card"])
 
 
@@ -68,10 +67,10 @@ const Card = props => {
     }
   }
 
-  const contextMenu = e => {
+  const rightClick = e => {
     e.preventDefault()
     if (e.shiftKey){
-
+      setModal("fieldCardContextMenu", props.cardData, {x: co.x + l.current.offsetWidth, y: co.y})
     } else {
       tap()
     }
@@ -86,9 +85,11 @@ const Card = props => {
   }
 
   return (
-    <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={contextMenu} onDoubleClick={expand}>
-      <img src={card.imageURL} alt={card.name} width={width} height={height}/>
-    </li>
+    <>
+      <li ref={l} className={classList.join(" ")} style={style} draggable="true" onDragStart={drag} onDragEnd={dragEnd} onMouseOver={hover} onMouseOut={removeHover} onContextMenu={rightClick} onDoubleClick={expand}>
+        <img src={card.imageURL} alt={card.name} width={width} height={height}/>
+      </li>
+    </>
   )
 }
 
