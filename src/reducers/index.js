@@ -6,6 +6,7 @@ import fieldReducers from './fieldReducers'
 import modalReducers from './modalReducers'
 import graveyardReducers from './graveyardReducers'
 import userReducers from './userReducers'
+import gameReducer from './gameReducer'
 
 const rootReducer = combineReducers({
   libraryReducer,
