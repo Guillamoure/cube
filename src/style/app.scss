@@ -43,3 +43,24 @@
     }
   }
 }
+
+#signin-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+  align-content: center;
+  input {
+    width: 20vw;
+    height: 5vh;
+    text-align: center;
+    background: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 1em;
+  }
+  button {
+    width: 20vw;
+    height: 5vh;
+    text-align: center;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 const NavBar = props => {
   return (
@@ -7,9 +8,9 @@ const NavBar = props => {
       <li>Sets</li>
       <li>Friends</li>
       <li>Start Game</li>
-      <li>Login</li>
+      <li onClick={() => props.history.push("/signin")}>Login</li>
     </nav>
   )
 }
 
-export default NavBar
+export default withRouter(NavBar)

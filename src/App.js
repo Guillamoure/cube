@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 
 import NavBar from './containers/navbar'
 import Home from './containers/home'
+import Signin from './components/signin'
 import Game from './containers/game'
 import WaitingRoom from './containers/waiting_room'
 
@@ -22,6 +23,7 @@ const modalKind = useSelector(state => state.modalReducers.kind)
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/signin" component={Signin} />
         <Route exact path="/game/:id" component={Game} />
         <Route exact path="/waiting_room" component={WaitingRoom} />
       </Switch>
