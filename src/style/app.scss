@@ -7,8 +7,39 @@
   justify-content: center;
 }
 
-
-
 .rotated {
   transform: rotate(90deg)
+}
+
+#navbar {
+  display: flex;
+  background: black;
+  color: white;
+  li {
+    list-style: none;
+    padding: 1%;
+    &:hover {
+      background: white;
+      color: black;
+    }
+  }
+}
+
+#home {
+  display: flex;
+  li{
+    width: 40%;
+    // height: 20%;
+    list-style: none;
+    border: 2px solid blue;
+    border-radius: 1em;
+    text-align: center;
+    padding: 5%;
+    margin: 3%;
+    font-size: 20px;
+    &:hover {
+      background: blue;
+      color: white;
+    }
+  }
 }
