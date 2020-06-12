@@ -1,4 +1,5 @@
 import { expressURL } from '../variables'
+import { addUser } from '../../actions/userActions'
 
 export const signinFetch = (username) => {
   fetch(`${expressURL}/signin`, {
@@ -12,6 +13,6 @@ export const signinFetch = (username) => {
   // fetch(`${expressURL}/users`)
     .then(r => r.json())
     .then(user => {
-      console.log(user)
+      addUser(user)
     })
 }
