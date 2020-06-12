@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { signinFetch } from '../helper_methods/fetches/signin'
+import { logout } from '../helper_methods/functions/logout'
 
 const NavBar = props => {
 
@@ -11,7 +12,7 @@ const NavBar = props => {
     if (localStorage.username && !Object.keys(activeUser).length) {
       signinFetch(localStorage.username)
     }
-  })
+  }, [activeUser])
 
   const renderLogin = () => {
     return activeUser.username ? activeUser.username : "Login"
@@ -24,6 +25,7 @@ const NavBar = props => {
       <li>Friends</li>
       <li>Start Game</li>
       <li onClick={() => props.history.push("/signin")}>{renderLogin()}</li>
+      {activeUser.username && <li onClick={logout}>Logout</li>}
     </nav>
   )
 }
