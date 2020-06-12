@@ -20,7 +20,7 @@ const NavBar = props => {
 
   return (
     <nav id='navbar'>
-      <li>Cube</li>
+      <li onClick={() => props.history.push("/")}>Cube</li>
       <li>Sets</li>
       <li>Friends</li>
       <li>Start Game</li>
