@@ -11,5 +11,7 @@ export const signinFetch = (username) => {
   })
   // fetch(`${expressURL}/users`)
     .then(r => r.json())
-    .then(console.log)
+    .then(user => {
+      console.log(user)
+    })
 }
