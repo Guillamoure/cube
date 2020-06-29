@@ -15,7 +15,7 @@ const Signin = props => {
       localStorage.setItem("_id", activeUser._id)
       props.history.push("/")
     }
-  }, [activeUser])
+  }, [activeUser, props.history])
 
   const signin = (e) => {
     e.preventDefault()

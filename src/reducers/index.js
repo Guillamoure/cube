@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
   fieldReducers,
   modalReducers,
   graveyardReducers,
-  userReducers
+  userReducers,
+  gameReducer
 })
 
 export default rootReducer
