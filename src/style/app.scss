@@ -122,7 +122,6 @@
           width: 30px;
           height: 30px;
           padding: 0 5px;
-          opacity: 0.5;
         }
       }
     }
@@ -131,4 +130,8 @@
       height: 85vh;
       margin: 2vh;
     }
+}
+
+.transparant-icon {
+  opacity: 0.5;
 }
