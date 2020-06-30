@@ -7,10 +7,8 @@ export const distributeWS = (payload) => {
   } else if (payload.userID){
     addWSID(payload.userID)
   } else if (payload.players){
-    if (payload.players.length === 1){
-      addRoomID(payload.roomID)
-      setNumOfPlayers(payload.numOfPlayers)
-    }
+    addRoomID(payload.roomID)
+    setNumOfPlayers(payload.numOfPlayers)
     updatePlayers(payload.players)
   }
   return payload

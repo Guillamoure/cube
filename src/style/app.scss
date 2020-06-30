@@ -64,3 +64,16 @@
     text-align: center;
   }
 }
+
+#library-selection-container {
+  display: flex;
+  justify-content: center;
+  li {
+    list-style: none;
+    border: 2px solid black;
+    padding: 5%;
+    width: 20%;
+    margin: 2.5%;
+    text-align: center;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { useSelector } from 'react-redux'
+import DeckSelection from '../components/deck_selection'
 
 import { w3cwebsocket as W3CWebSocket} from 'websocket'
 import { wsURL } from '../helper_methods/variables'
@@ -116,6 +117,7 @@ const WaitingRoom = props => {
       {!displayName && renderForm()}
       {clientStatus && renderStartGame()}
       {!!players.length && renderAwaitingPlayers()}
+      {players.length === playerMaximum && playerMaximum > 0 && <DeckSelection />}
     </main>
   )
 }
