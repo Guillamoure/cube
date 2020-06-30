@@ -10,8 +10,8 @@ import Home from './containers/home'
 import Signin from './components/signin'
 import Game from './containers/game'
 import WaitingRoom from './containers/waiting_room'
-import Libraries from './containers/libraries'
-import NewLibrary from './containers/new-library'
+import Libraries from './containers/player-libraries/libraries'
+import NewLibrary from './containers/player-libraries/new-library'
 
 import ModalDistributer from './modals/modal_distributer'
 

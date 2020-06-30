@@ -92,3 +92,21 @@
     background-color: lightgrey;
   }
 }
+
+#new-library-container {
+    display: grid;
+    grid-template-columns: 19.5% 79.5%;
+    grid-column-gap: 1%;
+    aside {
+      border: 2px solid black;
+      height: 85vh;
+      margin: 2vh;
+      border-radius: 5px;
+      padding: 2px;
+    }
+    article {
+      border: 2px dotted black;
+      height: 85vh;
+      margin: 2vh;
+    }
+}
