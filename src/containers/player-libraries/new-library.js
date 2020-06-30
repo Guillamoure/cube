@@ -1,5 +1,6 @@
 import React from 'react'
 import LibraryInfo from './library-info'
+import CardSelector from './card-selector'
 
 const NewLibrary = props => {
   // list of available colors
@@ -10,8 +11,7 @@ const NewLibrary = props => {
   return (
     <main id="new-library-container">
       <LibraryInfo />
-      <article>
-      </article>
+      <CardSelector />
     </main>
   )
 }
