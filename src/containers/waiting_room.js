@@ -66,6 +66,22 @@ const WaitingRoom = props => {
     }
   }, [displayName, client, clientStatus, user])
 
+  React.useEffect(() => {
+    if (client){
+      return function cu() {
+        console.log("butts")
+        console.log("componentWillUnmount")
+        distributeWS({
+          players: [],
+          roomID: null,
+          numOfPlayers: 0,
+          userID: null
+        })
+        client.send(JSON.stringify({payload: {type: "unmount"}}))
+      }
+    }
+  }, [client])
+
   const formSubmit = (e) => {
     e.preventDefault()
     setDisplayName(inputName)
