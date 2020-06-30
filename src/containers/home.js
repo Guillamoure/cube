@@ -7,7 +7,7 @@ const Home = props => {
   return (
     <main id="home">
       <li onClick={() => props.history.push("/waiting_room")}>Start Game</li>
-      <li>List of Decks</li>
+      <li onClick={() => props.history.push("/libraries")}>List of Decks</li>
       <li>Coming Soon...</li>
     </main>
   )

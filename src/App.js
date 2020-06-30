@@ -10,6 +10,7 @@ import Home from './containers/home'
 import Signin from './components/signin'
 import Game from './containers/game'
 import WaitingRoom from './containers/waiting_room'
+import Libraries from './containers/libraries'
 
 import ModalDistributer from './modals/modal_distributer'
 
@@ -26,6 +27,7 @@ const modalKind = useSelector(state => state.modalReducers.kind)
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/game/:id" component={Game} />
         <Route exact path="/waiting_room" component={WaitingRoom} />
+        <Route exact path="/libraries" component={Libraries} />
       </Switch>
     </Router>
   );

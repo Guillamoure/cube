@@ -77,3 +77,18 @@
     text-align: center;
   }
 }
+
+#new-library-button {
+  position: fixed;
+  right: 0%;
+  margin: 1%;
+  font-size: 20px;
+  color: white;
+  background-color: #0892D0;
+  border-radius: 1em;
+  border: 1px solid darkblue;
+  &:hover {
+    color: #0893d0;
+    background-color: lightgrey;
+  }
+}

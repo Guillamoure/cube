@@ -2,7 +2,6 @@ import { addPlayer, updatePlayers, addRoomID, setNumOfPlayers } from '../../acti
 import { addWSID } from '../../actions/userActions'
 
 export const distributeWS = (payload) => {
-  debugger
   if (payload.start){
     addPlayer(payload.user)
   } else if (payload.userID){
