@@ -5,6 +5,9 @@ import './style/board.scss'
 import './style/modal.scss'
 import { useSelector } from 'react-redux'
 
+import socketIOClient from 'socket.io-client'
+import { expressURL } from './helper_methods/variables'
+
 import NavBar from './containers/navbar'
 import Home from './containers/home'
 import Signin from './components/signin'
@@ -16,6 +19,13 @@ import NewLibrary from './containers/player-libraries/new-library'
 import ModalDistributer from './modals/modal_distributer'
 
 function App() {
+
+	React.useEffect(() => {
+		const socket = socketIOClient(expressURL)
+		socket.on('connectionEstablished', () => {
+			console.log("Websocket connection made")
+		})
+	}, [])
 
 const modalKind = useSelector(state => state.modalReducers.kind)
 
