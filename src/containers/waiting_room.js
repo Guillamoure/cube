@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from 'uuid'
 import { useSelector } from 'react-redux'
 import DeckSelection from '../components/deck_selection'
 
-import { w3cwebsocket as W3CWebSocket} from 'websocket'
-import { wsURL } from '../helper_methods/variables'
+import socketIOClient from 'socket.io-client'
+import { expressURL } from '../helper_methods/variables'
 import { distributeWS } from '../helper_methods/websockets/new_game'
 
 const WaitingRoom = props => {
@@ -22,16 +22,23 @@ const WaitingRoom = props => {
   React.useEffect(() => {
     if (displayName && !client){
 
-      setClient(new W3CWebSocket(`ws://${wsURL}`))
+      setClient(socketIOClient(expressURL))
 
     } else if (client && !clientStatus){
 
-      client.onopen = () => {
-        setClientStatus(true)
-      }
-      client.onmessage = (message) => {
-        const data = JSON.parse(message.data)
-        console.log(distributeWS(data.payload))
+      // client.onopen = () => {
+      //   setClientStatus(true)
+      // }
+			client.emit('join', () => {
+				console.log("Did it work?")
+			})
+			client.on('welcome', (data) => {
+				setClientStatus(true)
+				distributeWS(data)
+			})
+      client.on('joinRoom', (data) =>{
+        // const data = JSON.parse(message.data)
+        distributeWS(data)
         // if (data.payload.start){
         //   client.send(JSON.stringify({
         //     type: "message",
@@ -41,22 +48,18 @@ const WaitingRoom = props => {
         //     }
         //   }))
         // }
-      }
+      })
 
     } else if (clientStatus) {
       if (user.userID){
         console.log(user)
-        client.send(JSON.stringify({
-          type: "message",
-          payload: {
-            user: displayName,
-            start: true,
-            _id: user._id,
-            userID: user.userID,
-            numOfPlayers,
-            players: []
-          }
-        }))
+        client.emit('joinRoom', {
+          user: displayName,
+          _id: user._id,
+          userID: user.userID,
+          numOfPlayers,
+          players: []
+        })
       }
     }
 
