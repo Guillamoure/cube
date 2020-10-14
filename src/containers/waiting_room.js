@@ -9,7 +9,7 @@ import { distributeWS } from '../helper_methods/websockets/new_game'
 
 const WaitingRoom = props => {
 
-  const user = useSelector(state => state.userReducers.user)
+  let user = useSelector(state => state.userReducers.user)
   const players = useSelector(state => state.gameReducer.players)
   const playerMaximum = useSelector(state => state.gameReducer.numOfPlayers)
 
@@ -38,7 +38,9 @@ const WaitingRoom = props => {
 			})
       client.on('joinRoom', (data) =>{
         // const data = JSON.parse(message.data)
+				console.log(user)
         distributeWS(data)
+				console.log(user)
         // if (data.payload.start){
         //   client.send(JSON.stringify({
         //     type: "message",
@@ -70,20 +72,28 @@ const WaitingRoom = props => {
   }, [displayName, client, clientStatus, user])
 
   React.useEffect(() => {
-    if (client){
+    if (client && user.userID){
       return function cu() {
-        console.log("butts")
         console.log("componentWillUnmount")
+				console.log(user)
+				client.emit('leaveRoom', {userID: user.userID})
         distributeWS({
           players: [],
           roomID: null,
           numOfPlayers: 0,
           userID: null
         })
-        client.send(JSON.stringify({payload: {type: "unmount"}}))
       }
     }
-  }, [client])
+  }, [client, user])
+
+	window.addEventListener('beforeunload', e => {
+		e.preventDefault()
+		if (client && user.userID){
+			client.emit('leaveRoom', {userID: user.userID})
+		}
+		console.log("something")
+	})
 
   const formSubmit = (e) => {
     e.preventDefault()
