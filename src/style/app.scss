@@ -135,3 +135,11 @@
 .transparant-icon {
   opacity: 0.5;
 }
+
+#cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	img {
+		padding: 4px;
+	}
+}

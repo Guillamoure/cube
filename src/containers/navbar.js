@@ -22,6 +22,7 @@ const NavBar = props => {
     <nav id='navbar'>
       <li onClick={() => props.history.push("/")}>Cube</li>
       <li>Sets</li>
+      <li onClick={() => props.history.push("/cards")}>Cards</li>
       <li>Friends</li>
       <li>Start Game</li>
       <li onClick={() => props.history.push("/signin")}>{renderLogin()}</li>

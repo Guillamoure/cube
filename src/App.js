@@ -12,6 +12,7 @@ import Game from './containers/game'
 import WaitingRoom from './containers/waiting_room'
 import Libraries from './containers/player-libraries/libraries'
 import NewLibrary from './containers/player-libraries/new-library'
+import Cards from './containers/explore_cards'
 
 import ModalDistributer from './modals/modal_distributer'
 
@@ -30,6 +31,7 @@ const modalKind = useSelector(state => state.modalReducers.kind)
         <Route exact path="/waiting_room" component={WaitingRoom} />
         <Route exact path="/libraries" component={Libraries} />
         <Route exact path="/new-library" component={NewLibrary} />
+        <Route exact path="/cards" component={Cards} />
       </Switch>
     </Router>
   );
