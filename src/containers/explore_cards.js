@@ -8,7 +8,12 @@ const ExploreCards = props => {
 
 	React.useEffect(() => {
 		getCards()
-			.then(setCards)
+			.then(data =>{
+				// let therosBeyondDeath = data.filter(c => c.set === "THB")
+				// therosBeyondDeath = therosBeyondDeath.sort((a,b) => parseInt(a.number) - parseInt(b.number))
+				// setCards(therosBeyondDeath)
+				setCards(data)
+			})
 	}, [])
 
 	const renderCards = () => {

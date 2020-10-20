@@ -130,6 +130,17 @@
       height: 85vh;
       margin: 2vh;
     }
+		#display-search-cards {
+			display: flex;
+			flex-wrap: wrap;
+			overflow-y: scroll;
+			height: 80vh;
+			margin: 5px;
+			img {
+				margin: 0.5%;
+				width: 18%;
+			}
+		}
 }
 
 .transparant-icon {
@@ -140,6 +151,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	img {
-		padding: 4px;
+		margin: 0.15vw;
+		width: 12vw;
+		height: 16.8vw;
 	}
 }

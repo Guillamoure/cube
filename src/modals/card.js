@@ -14,7 +14,7 @@ const CardModal = props => {
 
   const rotate = e => {
     e.preventDefault()
-    
+
     let cl = [...classList]
     if (cl.includes("rotated")){
       cl = cl.filter(c => c !== "rotated")
@@ -24,7 +24,7 @@ const CardModal = props => {
 
   return (
     <aside id="modal" onClick={removeModal}>
-      <img id="modal-image" className={classList.join(" ")} src={modalRedux.data.imageURL} alt={modalRedux.data.name} height={window.innerWidth/3 * 7/5} width={window.innerWidth/3} onContextMenu={rotate}/>
+      <img id="modal-image" className={classList.join(" ")} src={modalRedux.data.imageUrl} alt={modalRedux.data.name} height={window.innerWidth/3 * 7/5} width={window.innerWidth/3} onContextMenu={rotate}/>
     </aside>
   )
 }
