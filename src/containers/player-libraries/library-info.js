@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+import { libraryCard } from '../../helper_methods/card/shorthand'
+
 const LibraryInfo = props => {
 
   const [libraryName, setName] = React.useState("")
@@ -24,6 +26,20 @@ const LibraryInfo = props => {
     if (selectedMana.length > 1){ return {backgroundImage: `linear-gradient(160deg, ${selectedMana.join(", ")})`, opacity: "0.7"} }
   }
 
+	const displayStats = () => {
+		return (
+			<div>
+				Cards: {props.library.length}
+			</div>
+		)
+	}
+
+	const renderLibrary = () => {
+		console.log(props.library)
+		let cardNodes = props.library.sort((a, b) => a.cmc - b.cmc).map(libraryCard)
+		return cardNodes
+	}
+
   return (
     <aside style={backgroundColors()}>
       <input value={libraryName} placeholder="Library Name" onChange={e => setName(e.target.value)}/>
@@ -34,6 +50,8 @@ const LibraryInfo = props => {
         <li><img className={opacity("red")} onClick={() => toggleMana("red")} src="/images/mana/red.png"/></li>
         <li><img className={opacity("white")} onClick={() => toggleMana("white")} src="/images/mana/white.png"/></li>
       </ul>
+			{displayStats()}
+			{renderLibrary()}
     </aside>
   )
 }

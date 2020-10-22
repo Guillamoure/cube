@@ -33,7 +33,7 @@ const CardSelector = props => {
 
 	const renderCards = () => {
 		const domCards = cards.map(card => {
-			return <img src={card.imageUrl} alt={card.name} onClick={() => setModal("card", card)}/>
+			return <img onContextMenu={(e) => props.addToLibrary(e, card)} src={card.imageUrl} alt={card.name} onClick={() => setModal("card", card)}/>
 		})
 		return domCards
 	}
