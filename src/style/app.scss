@@ -114,23 +114,29 @@
           background-color: beige;
         }
       }
-      #mana-icon-container {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        img {
-          width: 30px;
-          height: 30px;
-          padding: 0 5px;
-        }
-      }
     }
     article {
       border: 2px dotted black;
       height: 85vh;
       margin: 2vh;
     }
+		#mana-icon-container {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			padding: 0;
+			img {
+				width: 30px;
+				height: 30px;
+				padding: 0 5px;
+			}
+		}
+		form {
+			display: flex;
+			#mana-icon-container {
+				margin: 3px;
+			}
+		}
 		#display-search-cards {
 			display: flex;
 			flex-wrap: wrap;
