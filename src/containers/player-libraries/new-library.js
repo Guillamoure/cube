@@ -16,10 +16,24 @@ const NewLibrary = props => {
 
 		setLibrary([...library, card])
 	}
+	const removeCard = (e, card) => {
+		e.preventDefault()
+		const libraryDuplicate = [...library]
+
+		let i = libraryDuplicate.findIndex(c => {
+			return c._id === card._id
+		})
+
+		libraryDuplicate.splice(i, 1)
+
+		setLibrary(libraryDuplicate)
+
+
+	}
 
   return (
     <main id="new-library-container">
-      <LibraryInfo library={library}/>
+      <LibraryInfo library={library} removeCard={removeCard}/>
       <CardSelector addToLibrary={addToLibrary}/>
     </main>
   )

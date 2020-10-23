@@ -36,7 +36,7 @@ const LibraryInfo = props => {
 
 	const renderLibrary = () => {
 		console.log(props.library)
-		let cardNodes = props.library.sort((a, b) => a.cmc - b.cmc).map(libraryCard)
+		let cardNodes = props.library.sort((a, b) => a.cmc - b.cmc).map((card, i) => libraryCard(card, props.removeCard))
 		return cardNodes
 	}
 

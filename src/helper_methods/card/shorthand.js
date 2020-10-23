@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const libraryCard = (card) => {
+export const libraryCard = (card, onContextMenu) => {
 	let mana = []
 	if (card.manaCost){
 		for (let i = 0; i < card.manaCost.length; i+=3){
@@ -28,5 +28,5 @@ export const libraryCard = (card) => {
 		}
 	}
 
-	return <li style={{display: "flex", alignItems: "center"}}>{mana} {card.name}</li>
+	return <li style={{display: "flex", alignItems: "center"}} onContextMenu={(e) => onContextMenu(e, card)}>{mana} {card.name}</li>
 }
